@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wasla/l10n/generated/app_localizations.dart';
 import '../providers/order_provider.dart';
-import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../../../core/widgets/wasla_glass_card.dart';
 import 'package:intl/intl.dart';
 
@@ -15,7 +14,6 @@ class WalletScreen extends ConsumerWidget {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
     final isDark = theme.brightness == Brightness.dark;
-    final user = ref.watch(currentUserProvider);
 
     // We'll use the delivered orders to calculate earnings for now
     final deliveredOrdersAsync = ref.watch(deliveredOrdersProvider);

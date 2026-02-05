@@ -95,6 +95,10 @@ class OrderListItem extends StatelessWidget {
         statusColor = theme.colorScheme.primary;
         statusText = l10n.statusAccepted;
         break;
+      case 'picked_up':
+        statusColor = Colors.cyan;
+        statusText = l10n.statusPickedUp;
+        break;
       case 'delivered':
         statusColor = Colors.green;
         statusText = l10n.statusDelivered;

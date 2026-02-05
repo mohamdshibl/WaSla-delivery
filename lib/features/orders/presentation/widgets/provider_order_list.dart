@@ -217,24 +217,29 @@ class _StatusBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
     Color color;
     String statusText;
     switch (status) {
-      case 'delivered':
-        color = Colors.green;
-        statusText = l10n.statusDelivered;
-        break;
       case 'pending':
         color = Colors.orange;
         statusText = l10n.statusPending;
         break;
       case 'accepted':
-        color = Colors.blue;
+        color = theme.colorScheme.primary;
         statusText = l10n.statusAccepted;
         break;
+      case 'picked_up':
+        color = Colors.cyan;
+        statusText = l10n.statusPickedUp;
+        break;
+      case 'delivered':
+        color = Colors.green;
+        statusText = l10n.statusDelivered;
+        break;
       default:
-        color = Colors.blue;
+        color = Colors.blueGrey;
         statusText = l10n.statusUnknown;
     }
 
