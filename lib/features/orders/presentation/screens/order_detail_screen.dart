@@ -115,6 +115,50 @@ class OrderDetailScreen extends ConsumerWidget {
 
                       const SizedBox(height: 32),
 
+                      // Financial Summary
+                      Text(
+                        l10n.totalPrice,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      WaslaGlassCard(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            _PriceRow(
+                              label: l10n.price,
+                              value: order.price ?? 0.0,
+                              currency: l10n.currency,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 12),
+                              child: Divider(height: 1),
+                            ),
+                            _PriceRow(
+                              label: l10n.deliveryFee,
+                              value: order.deliveryFee ?? 0.0,
+                              currency: l10n.currency,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 12),
+                              child: Divider(height: 1, thickness: 1.5),
+                            ),
+                            _PriceRow(
+                              label: l10n.totalPrice,
+                              value:
+                                  (order.price ?? 0.0) +
+                                  (order.deliveryFee ?? 0.0),
+                              currency: l10n.currency,
+                              isTotal: true,
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 32),
+
                       // Status Timeline
                       Text(
                         l10n.trackOrder,
@@ -307,6 +351,48 @@ class _StatusTimeline extends StatelessWidget {
           ],
         );
       }),
+    );
+  }
+}
+
+class _PriceRow extends StatelessWidget {
+  final String label;
+  final double value;
+  final String currency;
+  final bool isTotal;
+
+  const _PriceRow({
+    required this.label,
+    required this.value,
+    required this.currency,
+    this.isTotal = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          label,
+          style: theme.textTheme.bodyMedium?.copyWith(
+            fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
+            color: isTotal
+                ? theme.colorScheme.onSurface
+                : theme.colorScheme.onSurface.withOpacity(0.6),
+          ),
+        ),
+        Text(
+          '${value.toStringAsFixed(2)} $currency',
+          style: theme.textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.w900,
+            color: isTotal
+                ? theme.colorScheme.primary
+                : theme.colorScheme.onSurface,
+          ),
+        ),
+      ],
     );
   }
 }

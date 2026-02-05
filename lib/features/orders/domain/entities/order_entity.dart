@@ -8,6 +8,8 @@ class OrderEntity extends Equatable {
   final String
   status; // 'pending', 'accepted', 'picked_up', 'delivered', 'cancelled'
   final String? providerId;
+  final double? price;
+  final double? deliveryFee;
   final DateTime createdAt;
 
   const OrderEntity({
@@ -17,6 +19,8 @@ class OrderEntity extends Equatable {
     this.imageUrls = const [],
     this.status = 'pending',
     this.providerId,
+    this.price,
+    this.deliveryFee,
     required this.createdAt,
   });
 
@@ -28,6 +32,8 @@ class OrderEntity extends Equatable {
     imageUrls,
     status,
     providerId,
+    price,
+    deliveryFee,
     createdAt,
   ];
 }

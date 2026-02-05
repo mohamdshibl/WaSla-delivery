@@ -73,5 +73,13 @@
   "customer": "العميل",
   "noMessagesYet": "لا توجد رسائل بعد",
   "startConversation": "ابدأ المحادثة الآن!",
-  "typeAMessage": "اكتب رسالة..."
+  "typeAMessage": "اكتب رسالة...",
+  "price": "السعر",
+  "deliveryFee": "رسوم التوصيل",
+  "totalEarnings": "إجمالي الأرباح",
+  "wallet": "المحفظة",
+  "myEarnings": "أرباحي",
+  "estimatedFee": "الرسوم التقديرية",
+  "totalPrice": "السعر الإجمالي",
+  "currency": "ج.م"
 }

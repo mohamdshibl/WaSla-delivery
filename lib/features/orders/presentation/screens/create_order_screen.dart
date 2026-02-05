@@ -21,6 +21,8 @@ class CreateOrderScreen extends ConsumerStatefulWidget {
 
 class _CreateOrderScreenState extends ConsumerState<CreateOrderScreen> {
   final _descriptionController = TextEditingController();
+  final _priceController = TextEditingController();
+  final _feeController = TextEditingController();
   final List<File> _selectedImages = [];
   final _picker = ImagePicker();
   bool _isLoading = false;
@@ -28,6 +30,8 @@ class _CreateOrderScreenState extends ConsumerState<CreateOrderScreen> {
   @override
   void dispose() {
     _descriptionController.dispose();
+    _priceController.dispose();
+    _feeController.dispose();
     super.dispose();
   }
 
@@ -58,6 +62,8 @@ class _CreateOrderScreenState extends ConsumerState<CreateOrderScreen> {
       customerId: user.id,
       description: description,
       images: _selectedImages,
+      price: double.tryParse(_priceController.text),
+      deliveryFee: double.tryParse(_feeController.text),
     );
 
     if (!mounted) return;
@@ -134,6 +140,34 @@ class _CreateOrderScreenState extends ConsumerState<CreateOrderScreen> {
                           controller: _descriptionController,
                           label: l10n.itemDescription,
                           keyboardType: TextInputType.multiline,
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: WaslaTextField(
+                                controller: _priceController,
+                                label: l10n.price,
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                      decimal: true,
+                                    ),
+                                suffix: Text(l10n.currency),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: WaslaTextField(
+                                controller: _feeController,
+                                label: l10n.estimatedFee,
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                      decimal: true,
+                                    ),
+                                suffix: Text(l10n.currency),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

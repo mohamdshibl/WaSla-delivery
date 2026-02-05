@@ -13,11 +13,15 @@ class CreateOrderUseCase {
     required String customerId,
     required String description,
     required List<File> images,
+    double? price,
+    double? deliveryFee,
   }) {
     return repository.createOrder(
       customerId: customerId,
       description: description,
       images: images,
+      price: price,
+      deliveryFee: deliveryFee,
     );
   }
 }

@@ -9,6 +9,8 @@ abstract class OrdersRemoteDataSource {
     required String customerId,
     required String description,
     required List<File> images,
+    double? price,
+    double? deliveryFee,
   });
 
   Stream<List<OrderModel>> getCustomerOrders(String customerId);
@@ -47,6 +49,8 @@ class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
     required String customerId,
     required String description,
     required List<File> images,
+    double? price,
+    double? deliveryFee,
   }) async {
     // 1. Upload images
     List<String> imageUrls = [];
@@ -66,6 +70,8 @@ class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
       description: description,
       imageUrls: imageUrls,
       status: 'pending',
+      price: price,
+      deliveryFee: deliveryFee,
       createdAt: DateTime.now(),
     );
 

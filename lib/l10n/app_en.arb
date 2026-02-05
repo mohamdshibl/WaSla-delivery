@@ -132,5 +132,13 @@
   "customer": "Customer",
   "noMessagesYet": "No messages yet",
   "startConversation": "Start the conversation!",
-  "typeAMessage": "Type a message..."
+  "typeAMessage": "Type a message...",
+  "price": "Price",
+  "deliveryFee": "Delivery Fee",
+  "totalEarnings": "Total Earnings",
+  "wallet": "Wallet",
+  "myEarnings": "My Earnings",
+  "estimatedFee": "Estimated Fee",
+  "totalPrice": "Total Price",
+  "currency": "EGP"
 }

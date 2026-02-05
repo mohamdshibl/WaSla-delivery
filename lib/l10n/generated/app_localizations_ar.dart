@@ -245,4 +245,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get typeAMessage => 'اكتب رسالة...';
+
+  @override
+  String get price => 'السعر';
+
+  @override
+  String get deliveryFee => 'رسوم التوصيل';
+
+  @override
+  String get totalEarnings => 'إجمالي الأرباح';
+
+  @override
+  String get wallet => 'المحفظة';
+
+  @override
+  String get myEarnings => 'أرباحي';
+
+  @override
+  String get estimatedFee => 'الرسوم التقديرية';
+
+  @override
+  String get totalPrice => 'السعر الإجمالي';
+
+  @override
+  String get currency => 'ج.م';
 }

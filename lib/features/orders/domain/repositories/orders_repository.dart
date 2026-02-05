@@ -8,6 +8,8 @@ abstract class OrdersRepository {
     required String customerId,
     required String description,
     required List<File> images,
+    double? price,
+    double? deliveryFee,
   });
 
   Stream<Either<Failure, List<OrderEntity>>> getCustomerOrders(

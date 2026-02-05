@@ -8,6 +8,7 @@ import '../../features/auth/presentation/screens/profile_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/orders/presentation/screens/create_order_screen.dart';
 import '../../features/orders/presentation/screens/order_detail_screen.dart';
+import '../../features/orders/presentation/screens/wallet_screen.dart';
 import '../../features/chat/presentation/screens/chat_screen.dart';
 import '../../core/widgets/wasla_logo.dart';
 
@@ -68,6 +69,10 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/profile',
         builder: (context, state) => const ProfileScreen(),
+      ),
+      GoRoute(
+        path: '/wallet',
+        builder: (context, state) => const WalletScreen(),
       ),
     ],
   );

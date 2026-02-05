@@ -8,6 +8,7 @@ class WaslaTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextInputType keyboardType;
   final Color? fillColor;
+  final Widget? suffix;
 
   const WaslaTextField({
     super.key,
@@ -18,6 +19,7 @@ class WaslaTextField extends StatelessWidget {
     this.validator,
     this.keyboardType = TextInputType.text,
     this.fillColor,
+    this.suffix,
   });
 
   @override
@@ -55,6 +57,15 @@ class WaslaTextField extends StatelessWidget {
                     prefixIcon,
                     color: theme.colorScheme.primary.withOpacity(0.7),
                     size: 20,
+                  )
+                : null,
+            suffixIcon: suffix != null
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [suffix!],
+                    ),
                   )
                 : null,
             filled: true,

@@ -118,6 +118,18 @@ class HomeScreen extends ConsumerWidget {
                             ],
                           ),
                         ),
+                        if (isProvider)
+                          IconButton(
+                            onPressed: () => context.push('/wallet'),
+                            icon: const Icon(
+                              Icons.account_balance_wallet_outlined,
+                            ),
+                            style: IconButton.styleFrom(
+                              backgroundColor: Colors.green.withOpacity(0.1),
+                              foregroundColor: Colors.green,
+                            ),
+                          ),
+                        const SizedBox(width: 8),
                         IconButton(
                           onPressed: () => context.push('/profile'),
                           icon: const Icon(Icons.person_outline_rounded),

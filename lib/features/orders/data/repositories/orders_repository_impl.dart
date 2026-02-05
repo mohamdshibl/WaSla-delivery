@@ -15,12 +15,16 @@ class OrdersRepositoryImpl implements OrdersRepository {
     required String customerId,
     required String description,
     required List<File> images,
+    double? price,
+    double? deliveryFee,
   }) async {
     try {
       final order = await remoteDataSource.createOrder(
         customerId: customerId,
         description: description,
         images: images,
+        price: price,
+        deliveryFee: deliveryFee,
       );
       return Right(order);
     } catch (e) {

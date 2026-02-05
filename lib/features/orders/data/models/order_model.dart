@@ -9,6 +9,8 @@ class OrderModel extends OrderEntity {
     super.imageUrls,
     super.status,
     super.providerId,
+    super.price,
+    super.deliveryFee,
     required super.createdAt,
   });
 
@@ -21,6 +23,8 @@ class OrderModel extends OrderEntity {
       imageUrls: List<String>.from(data['imageUrls'] ?? []),
       status: data['status'] ?? 'pending',
       providerId: data['providerId'],
+      price: (data['price'] as num?)?.toDouble(),
+      deliveryFee: (data['deliveryFee'] as num?)?.toDouble(),
       createdAt: (data['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
     );
   }
@@ -32,6 +36,8 @@ class OrderModel extends OrderEntity {
       'imageUrls': imageUrls,
       'status': status,
       'providerId': providerId,
+      'price': price,
+      'deliveryFee': deliveryFee,
       'createdAt': Timestamp.fromDate(createdAt),
     };
   }

@@ -245,4 +245,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get typeAMessage => 'Type a message...';
+
+  @override
+  String get price => 'Price';
+
+  @override
+  String get deliveryFee => 'Delivery Fee';
+
+  @override
+  String get totalEarnings => 'Total Earnings';
+
+  @override
+  String get wallet => 'Wallet';
+
+  @override
+  String get myEarnings => 'My Earnings';
+
+  @override
+  String get estimatedFee => 'Estimated Fee';
+
+  @override
+  String get totalPrice => 'Total Price';
+
+  @override
+  String get currency => 'EGP';
 }
