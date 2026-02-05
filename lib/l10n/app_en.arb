@@ -1,0 +1,136 @@
+{
+  "@@locale": "en",
+  "appTitle": "Wasla",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "welcome": "Welcome back",
+  "myProfile": "My Profile",
+  "displayName": "Display Name",
+  "email": "Email",
+  "darkMode": "Dark Mode",
+  "enabled": "Enabled",
+  "disabled": "Disabled",
+  "logout": "Logout",
+  "myOrders": "MY ORDERS",
+  "orderHistory": "ORDER HISTORY (DELIVERED)",
+  "noOrdersYet": "No orders yet. Start by creating one!",
+  "noDeliveredOrders": "No delivered orders yet",
+  "createOrder": "Create Order",
+  "errorLoadingOrders": "Error loading orders: {error}",
+  "@errorLoadingOrders": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "nameCannotBeEmpty": "Name cannot be empty",
+  "profileUpdated": "Profile updated!",
+  "anErrorOccurred": "An error occurred: {error}",
+  "@anErrorOccurred": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "enterYourName": "Enter your name",
+  "user": "User",
+  "newOrder": "New Order",
+  "waslaVendor": "Wasla Vendor",
+  "waslaHome": "Wasla Home",
+  "welcomeBackUser": "Welcome back, {name}!",
+  "@welcomeBackUser": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "myActiveOrders": "MY ACTIVE ORDERS",
+  "availableForDelivery": "AVAILABLE FOR DELIVERY",
+  "noNewOrdersAvailable": "No new orders available",
+  "notLoggedIn": "Not logged in",
+  "friend": "Friend",
+  "errorLoadingHistory": "Error loading history: {error}",
+  "@errorLoadingHistory": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "noActiveOrders": "No active orders",
+  "statusPending": "PENDING",
+  "statusAccepted": "ACCEPTED",
+  "statusDelivered": "DELIVERED",
+  "statusUnknown": "UNKNOWN",
+  "deliveredBy": "Delivered by {name}",
+  "@deliveredBy": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "provider": "Provider",
+  "noOrdersFound": "No orders found",
+  "customerLabel": "CUSTOMER",
+  "unknownCustomer": "Unknown Customer",
+  "errorLoadingName": "Error loading name",
+  "acceptOrder": "Accept Order",
+  "orderAccepted": "Order accepted!",
+  "failedToAccept": "Failed: {error}",
+  "@failedToAccept": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "orderIdLabel": "ORDER #{id}",
+  "@orderIdLabel": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "statusPickedUp": "PICKED UP",
+  "loading": "Loading...",
+  "chat": "Chat",
+  "pickUp": "Pick Up",
+  "deliver": "Deliver",
+  "statusUpdated": "Status updated!",
+  "failedToUpdateStatus": "Failed to update status: {error}",
+  "@failedToUpdateStatus": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "orderNotFound": "Order not found",
+  "orderDetails": "Order Details",
+  "trackOrder": "Track Order",
+  "chatWithProvider": "Chat with Provider",
+  "chatWithSupport": "Chat with Support",
+  "updatedJustNow": "Updated just now",
+  "newDelivery": "New Delivery",
+  "whatCanWeGetYou": "What can we get for you?",
+  "itemDescription": "Item Description",
+  "supportingPhotos": "Supporting Photos",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "postMyOrder": "Post My Order",
+  "orderCreatedSuccessfully": "Order created successfully!",
+  "pleaseEnterWhatYouNeed": "Please enter what you need",
+  "customer": "Customer",
+  "noMessagesYet": "No messages yet",
+  "startConversation": "Start the conversation!",
+  "typeAMessage": "Type a message..."
+}
