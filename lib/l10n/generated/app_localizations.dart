@@ -452,6 +452,12 @@ abstract class AppLocalizations {
   /// **'Chat with Provider'**
   String get chatWithProvider;
 
+  /// No description provided for @chatWithCustomer.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat with Customer'**
+  String get chatWithCustomer;
+
   /// No description provided for @chatWithSupport.
   ///
   /// In en, this message translates to:

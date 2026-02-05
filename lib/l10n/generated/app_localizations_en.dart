@@ -202,6 +202,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chatWithProvider => 'Chat with Provider';
 
   @override
+  String get chatWithCustomer => 'Chat with Customer';
+
+  @override
   String get chatWithSupport => 'Chat with Support';
 
   @override

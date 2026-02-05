@@ -202,6 +202,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chatWithProvider => 'تحدث مع المزود';
 
   @override
+  String get chatWithCustomer => 'تحدث مع العميل';
+
+  @override
   String get chatWithSupport => 'تحدث مع الدعم الفني';
 
   @override
