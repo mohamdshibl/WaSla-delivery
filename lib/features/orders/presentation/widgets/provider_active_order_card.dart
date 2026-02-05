@@ -157,7 +157,7 @@ class _ProviderActiveOrderCardState
                 child: OutlinedButton.icon(
                   onPressed: () => context.push('/chat/${widget.order.id}'),
                   icon: const Icon(Icons.chat_bubble_rounded, size: 18),
-                  label: Text(l10n.chat),
+                  label: Text(l10n.chatWithCustomer),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(

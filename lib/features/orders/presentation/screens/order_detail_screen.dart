@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:go_router/go_router.dart';
 import 'package:wasla/l10n/generated/app_localizations.dart';
 import '../providers/order_provider.dart';
+import '../../../../features/auth/presentation/providers/auth_provider.dart';
 import '../../../../core/widgets/wasla_glass_card.dart';
 import '../../../../core/widgets/wasla_button.dart';
 
@@ -17,6 +18,7 @@ class OrderDetailScreen extends ConsumerWidget {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
     final orderAsync = ref.watch(orderDetailsProvider(orderId));
+    final currentUser = ref.watch(currentUserProvider);
 
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
@@ -173,9 +175,11 @@ class OrderDetailScreen extends ConsumerWidget {
 
                       // Chat Button
                       WaslaButton(
-                        label: order.providerId != null
-                            ? l10n.chatWithProvider
-                            : l10n.chatWithSupport,
+                        label: currentUser?.role == 'customer'
+                            ? (order.providerId != null
+                                  ? l10n.chatWithProvider
+                                  : l10n.chatWithSupport)
+                            : l10n.chatWithCustomer,
                         icon: Icons.chat_bubble_rounded,
                         onPressed: () => context.push('/chat/${order.id}'),
                       ),
