@@ -33,4 +33,11 @@ abstract class OrdersRepository {
   });
 
   Stream<Either<Failure, OrderEntity>> getOrderById(String orderId);
+
+  Future<Either<Failure, void>> submitRating({
+    required String orderId,
+    required String providerId,
+    required int rating,
+    String? review,
+  });
 }

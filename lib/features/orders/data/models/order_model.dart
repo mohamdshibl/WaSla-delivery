@@ -11,6 +11,8 @@ class OrderModel extends OrderEntity {
     super.providerId,
     super.price,
     super.deliveryFee,
+    super.rating,
+    super.review,
     required super.createdAt,
   });
 
@@ -25,6 +27,8 @@ class OrderModel extends OrderEntity {
       providerId: data['providerId'],
       price: (data['price'] as num?)?.toDouble(),
       deliveryFee: (data['deliveryFee'] as num?)?.toDouble(),
+      rating: data['rating'] as int?,
+      review: data['review'] as String?,
       createdAt: (data['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
     );
   }
@@ -38,6 +42,8 @@ class OrderModel extends OrderEntity {
       'providerId': providerId,
       'price': price,
       'deliveryFee': deliveryFee,
+      'rating': rating,
+      'review': review,
       'createdAt': Timestamp.fromDate(createdAt),
     };
   }

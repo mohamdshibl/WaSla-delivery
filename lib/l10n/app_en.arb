@@ -141,5 +141,12 @@
   "myEarnings": "My Earnings",
   "estimatedFee": "Estimated Fee",
   "totalPrice": "Total Price",
-  "currency": "EGP"
+  "currency": "EGP",
+  "rateProvider": "Rate Provider",
+  "writeReview": "Write a review (optional)",
+  "submitRating": "Submit Rating",
+  "thankYouForRating": "Thank you for your feedback!",
+  "averageRating": "Rating",
+  "noRatingsYet": "No ratings yet",
+  "alreadyRated": "You've already rated this order"
 }

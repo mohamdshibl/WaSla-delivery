@@ -12,6 +12,7 @@ import '../../domain/usecases/update_order_status_usecase.dart';
 import '../../domain/usecases/get_order_by_id_usecase.dart';
 import '../../domain/usecases/get_active_orders_usecase.dart';
 import '../../domain/usecases/get_delivered_orders_usecase.dart';
+import '../../domain/usecases/submit_rating_usecase.dart';
 import '../../domain/entities/order_entity.dart';
 import '../../../../features/auth/presentation/providers/auth_provider.dart';
 
@@ -62,6 +63,10 @@ final getActiveOrdersUseCaseProvider = Provider((ref) {
 
 final getDeliveredOrdersUseCaseProvider = Provider((ref) {
   return GetDeliveredOrdersUseCase(ref.read(ordersRepositoryProvider));
+});
+
+final submitRatingUseCaseProvider = Provider((ref) {
+  return SubmitRatingUseCase(ref.read(ordersRepositoryProvider));
 });
 
 // --- State ---

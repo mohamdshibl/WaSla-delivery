@@ -10,6 +10,8 @@ class OrderEntity extends Equatable {
   final String? providerId;
   final double? price;
   final double? deliveryFee;
+  final int? rating; // 1-5 star rating from customer
+  final String? review; // Optional text review
   final DateTime createdAt;
 
   const OrderEntity({
@@ -21,6 +23,8 @@ class OrderEntity extends Equatable {
     this.providerId,
     this.price,
     this.deliveryFee,
+    this.rating,
+    this.review,
     required this.createdAt,
   });
 
@@ -34,6 +38,8 @@ class OrderEntity extends Equatable {
     providerId,
     price,
     deliveryFee,
+    rating,
+    review,
     createdAt,
   ];
 }

@@ -7,6 +7,8 @@ class UserModel extends UserEntity {
     required super.email,
     super.name,
     super.role,
+    super.averageRating,
+    super.totalRatings,
   });
 
   factory UserModel.fromDocument(DocumentSnapshot doc) {
@@ -16,6 +18,8 @@ class UserModel extends UserEntity {
       email: data['email'] ?? '',
       name: data['name'],
       role: data['role'] ?? 'customer',
+      averageRating: (data['averageRating'] as num?)?.toDouble(),
+      totalRatings: (data['totalRatings'] as int?) ?? 0,
     );
   }
 
@@ -25,10 +29,18 @@ class UserModel extends UserEntity {
       email: entity.email,
       name: entity.name,
       role: entity.role,
+      averageRating: entity.averageRating,
+      totalRatings: entity.totalRatings,
     );
   }
 
   Map<String, dynamic> toDocument() {
-    return {'email': email, 'name': name, 'role': role};
+    return {
+      'email': email,
+      'name': name,
+      'role': role,
+      'averageRating': averageRating,
+      'totalRatings': totalRatings,
+    };
   }
 }

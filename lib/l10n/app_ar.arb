@@ -82,5 +82,12 @@
   "myEarnings": "أرباحي",
   "estimatedFee": "الرسوم التقديرية",
   "totalPrice": "السعر الإجمالي",
-  "currency": "ج.م"
+  "currency": "ج.م",
+  "rateProvider": "تقييم المزود",
+  "writeReview": "اكتب مراجعة (اختياري)",
+  "submitRating": "إرسال التقييم",
+  "thankYouForRating": "شكراً لملاحظاتك!",
+  "averageRating": "التقييم",
+  "noRatingsYet": "لا توجد تقييمات بعد",
+  "alreadyRated": "لقد قمت بتقييم هذا الطلب بالفعل"
 }

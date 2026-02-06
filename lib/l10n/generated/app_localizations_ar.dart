@@ -272,4 +272,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get currency => 'ج.م';
+
+  @override
+  String get rateProvider => 'تقييم المزود';
+
+  @override
+  String get writeReview => 'اكتب مراجعة (اختياري)';
+
+  @override
+  String get submitRating => 'إرسال التقييم';
+
+  @override
+  String get thankYouForRating => 'شكراً لملاحظاتك!';
+
+  @override
+  String get averageRating => 'التقييم';
+
+  @override
+  String get noRatingsYet => 'لا توجد تقييمات بعد';
+
+  @override
+  String get alreadyRated => 'لقد قمت بتقييم هذا الطلب بالفعل';
 }

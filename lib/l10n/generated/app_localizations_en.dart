@@ -272,4 +272,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get currency => 'EGP';
+
+  @override
+  String get rateProvider => 'Rate Provider';
+
+  @override
+  String get writeReview => 'Write a review (optional)';
+
+  @override
+  String get submitRating => 'Submit Rating';
+
+  @override
+  String get thankYouForRating => 'Thank you for your feedback!';
+
+  @override
+  String get averageRating => 'Rating';
+
+  @override
+  String get noRatingsYet => 'No ratings yet';
+
+  @override
+  String get alreadyRated => 'You\'ve already rated this order';
 }

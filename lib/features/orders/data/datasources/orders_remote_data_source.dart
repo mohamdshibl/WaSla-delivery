@@ -31,6 +31,13 @@ abstract class OrdersRemoteDataSource {
   });
 
   Stream<OrderModel> getOrderById(String orderId);
+
+  Future<void> submitRating({
+    required String orderId,
+    required String providerId,
+    required int rating,
+    String? review,
+  });
 }
 
 class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
@@ -178,5 +185,39 @@ class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
       }
       return OrderModel.fromDocument(doc);
     });
+  }
+
+  @override
+  Future<void> submitRating({
+    required String orderId,
+    required String providerId,
+    required int rating,
+    String? review,
+  }) async {
+    // 1. Update order with rating
+    await firestore.collection('orders').doc(orderId).update({
+      'rating': rating,
+      'review': review,
+    });
+
+    // 2. Recalculate provider's average rating
+    final providerDoc = firestore.collection('users').doc(providerId);
+    final providerSnapshot = await providerDoc.get();
+
+    if (providerSnapshot.exists) {
+      final data = providerSnapshot.data() as Map<String, dynamic>;
+      final currentAverage = (data['averageRating'] as num?)?.toDouble() ?? 0.0;
+      final totalRatings = (data['totalRatings'] as int?) ?? 0;
+
+      // Calculate new average
+      final newTotalRatings = totalRatings + 1;
+      final newAverage =
+          ((currentAverage * totalRatings) + rating) / newTotalRatings;
+
+      await providerDoc.update({
+        'averageRating': newAverage,
+        'totalRatings': newTotalRatings,
+      });
+    }
   }
 }

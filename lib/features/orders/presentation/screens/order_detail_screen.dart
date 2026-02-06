@@ -7,6 +7,8 @@ import '../providers/order_provider.dart';
 import '../../../../features/auth/presentation/providers/auth_provider.dart';
 import '../../../../core/widgets/wasla_glass_card.dart';
 import '../../../../core/widgets/wasla_button.dart';
+import '../../../../core/utils/snackbar_utils.dart';
+import '../widgets/rating_dialog.dart';
 
 class OrderDetailScreen extends ConsumerWidget {
   final String orderId;
@@ -183,6 +185,92 @@ class OrderDetailScreen extends ConsumerWidget {
                         icon: Icons.chat_bubble_rounded,
                         onPressed: () => context.push('/chat/${order.id}'),
                       ),
+
+                      // Rate Provider Button (only for customers on delivered orders)
+                      if (currentUser?.role == 'customer' &&
+                          order.status == 'delivered' &&
+                          order.providerId != null) ...[
+                        const SizedBox(height: 16),
+                        if (order.rating != null)
+                          // Already rated - show rating
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Colors.amber.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: Colors.amber.withOpacity(0.3),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ...List.generate(
+                                  5,
+                                  (i) => Icon(
+                                    i < (order.rating ?? 0)
+                                        ? Icons.star_rounded
+                                        : Icons.star_outline_rounded,
+                                    color: Colors.amber,
+                                    size: 24,
+                                  ),
+                                ),
+                                if (order.review != null) ...[
+                                  const SizedBox(width: 12),
+                                  Expanded(
+                                    child: Text(
+                                      order.review!,
+                                      style: theme.textTheme.bodySmall,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ],
+                              ],
+                            ),
+                          )
+                        else
+                          // Not rated yet - show rate button
+                          Consumer(
+                            builder: (context, ref, child) {
+                              return WaslaButton(
+                                label: l10n.rateProvider,
+                                icon: Icons.star_rounded,
+                                color: Colors.amber,
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (ctx) => RatingDialog(
+                                      orderId: order.id,
+                                      providerId: order.providerId!,
+                                      onSubmit: (rating, review) async {
+                                        final result = await ref
+                                            .read(submitRatingUseCaseProvider)
+                                            .call(
+                                              orderId: order.id,
+                                              providerId: order.providerId!,
+                                              rating: rating,
+                                              review: review,
+                                            );
+
+                                        result.fold(
+                                          (failure) => SnackbarUtils.showError(
+                                            context,
+                                            message: failure.message,
+                                          ),
+                                          (_) => SnackbarUtils.showSuccess(
+                                            context,
+                                            message: l10n.thankYouForRating,
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                      ],
 
                       const SizedBox(height: 100),
                     ],

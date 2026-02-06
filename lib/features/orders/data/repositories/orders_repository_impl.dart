@@ -137,4 +137,24 @@ class OrdersRepositoryImpl implements OrdersRepository {
           return Left<Failure, OrderEntity>(ServerFailure(error.toString()));
         });
   }
+
+  @override
+  Future<Either<Failure, void>> submitRating({
+    required String orderId,
+    required String providerId,
+    required int rating,
+    String? review,
+  }) async {
+    try {
+      await remoteDataSource.submitRating(
+        orderId: orderId,
+        providerId: providerId,
+        rating: rating,
+        review: review,
+      );
+      return const Right(null);
+    } catch (e) {
+      return Left(ServerFailure(e.toString()));
+    }
+  }
 }

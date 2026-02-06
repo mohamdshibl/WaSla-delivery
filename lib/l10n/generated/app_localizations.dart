@@ -595,6 +595,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'EGP'**
   String get currency;
+
+  /// No description provided for @rateProvider.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate Provider'**
+  String get rateProvider;
+
+  /// No description provided for @writeReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Write a review (optional)'**
+  String get writeReview;
+
+  /// No description provided for @submitRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Rating'**
+  String get submitRating;
+
+  /// No description provided for @thankYouForRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you for your feedback!'**
+  String get thankYouForRating;
+
+  /// No description provided for @averageRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating'**
+  String get averageRating;
+
+  /// No description provided for @noRatingsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No ratings yet'**
+  String get noRatingsYet;
+
+  /// No description provided for @alreadyRated.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve already rated this order'**
+  String get alreadyRated;
 }
 
 class _AppLocalizationsDelegate
