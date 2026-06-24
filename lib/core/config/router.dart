@@ -10,7 +10,9 @@ import '../../features/orders/presentation/screens/create_order_screen.dart';
 import '../../features/orders/presentation/screens/order_detail_screen.dart';
 import '../../features/orders/presentation/screens/wallet_screen.dart';
 import '../../features/chat/presentation/screens/chat_screen.dart';
-import '../../core/widgets/wasla_logo.dart';
+import '../../features/branding/presentation/screens/branding_admin_screen.dart';
+import '../../features/menu/presentation/screens/menu_admin_screen.dart';
+import '../../core/widgets/brand_logo.dart';
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authStateChangesProvider);
@@ -74,6 +76,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         path: '/wallet',
         builder: (context, state) => const WalletScreen(),
       ),
+      GoRoute(
+        path: '/admin/branding',
+        builder: (context, state) => const BrandingAdminScreen(),
+      ),
+      GoRoute(
+        path: '/admin/menu',
+        builder: (context, state) => const MenuAdminScreen(),
+      ),
     ],
   );
 });
@@ -109,8 +119,8 @@ class _SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            WaslaLogo(
-              fontSize: 64,
+            BrandLogo(
+              size: 64,
               color: isDark ? Colors.white : theme.colorScheme.primary,
             ),
             const SizedBox(height: 48),

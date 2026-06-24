@@ -5,7 +5,7 @@ import '../providers/auth_provider.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/wasla_button.dart';
 import '../../../../core/widgets/wasla_glass_card.dart';
-import '../../../../core/widgets/wasla_logo.dart';
+import '../../../../core/widgets/brand_logo.dart';
 import '../../../../core/widgets/wasla_text_field.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -96,8 +96,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     children: [
                       Hero(
                         tag: 'app_logo',
-                        child: WaslaLogo(
-                          fontSize: 64,
+                        child: BrandLogo(
+                          size: 64,
                           color: isDark
                               ? Colors.white
                               : theme.colorScheme.primary,

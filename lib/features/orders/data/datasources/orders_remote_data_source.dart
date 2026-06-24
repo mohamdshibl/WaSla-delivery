@@ -62,11 +62,30 @@ class OrdersRemoteDataSourceImpl implements OrdersRemoteDataSource {
     // 1. Upload images
     List<String> imageUrls = [];
     for (var image in images) {
-      final String imageId = uuid.v4();
-      final ref = storage.ref().child('orders/$customerId/$imageId.jpg');
-      await ref.putFile(image);
-      final url = await ref.getDownloadURL();
-      imageUrls.add(url);
+      try {
+        print('Processing image: ${image.path}');
+        if (!await image.exists()) {
+          print('ERROR: Image file does not exist at path: ${image.path}');
+          continue;
+        }
+        final length = await image.length();
+        print('Image size: $length bytes');
+
+        final String imageId = uuid.v4();
+        final ref = storage.ref().child('orders/$customerId/$imageId.jpg');
+
+        print('Starting putFile to ${ref.fullPath}...');
+        await ref.putFile(image);
+        print('Upload finished. Getting download URL...');
+
+        final url = await ref.getDownloadURL();
+        print('Got URL: $url');
+        imageUrls.add(url);
+      } catch (e, stack) {
+        print('CRITICAL UPLOAD ERROR for ${image.path}: $e');
+        print(stack);
+        rethrow;
+      }
     }
 
     // 2. Create Order Document

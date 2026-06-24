@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wasla/l10n/generated/app_localizations.dart';
 import '../../../../features/auth/presentation/providers/auth_provider.dart';
 import '../../../../core/widgets/wasla_button.dart';
 import '../../../../core/widgets/wasla_glass_card.dart';
-import '../../../../core/widgets/wasla_logo.dart';
+import '../../../../core/widgets/brand_logo.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
@@ -110,8 +111,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                   shape: BoxShape.circle,
                   color: theme.colorScheme.primary.withOpacity(0.1),
                 ),
-                child: WaslaLogo(
-                  fontSize: 48,
+                child: BrandLogo(
+                  size: 48,
                   color: theme.colorScheme.primary,
                 ),
               ),
@@ -217,6 +218,28 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                           .setLocale(Locale(val ? 'ar' : 'en'));
                     },
                   ),
+                  if (user?.role == 'provider' || user?.role == 'owner')
+                    const Divider(height: 1, indent: 56),
+                  if (user?.role == 'provider' || user?.role == 'owner')
+                    ListTile(
+                      leading: Icon(
+                        Icons.storefront_outlined,
+                        color: theme.colorScheme.primary,
+                      ),
+                      title: const Text('Restaurant Branding'),
+                      subtitle: const Text('Logo, colors, and theme'),
+                      onTap: () => context.push('/admin/branding'),
+                    ),
+                  if (user?.role == 'provider' || user?.role == 'owner')
+                    ListTile(
+                      leading: Icon(
+                        Icons.restaurant_menu_outlined,
+                        color: theme.colorScheme.primary,
+                      ),
+                      title: const Text('Menu Manager'),
+                      subtitle: const Text('Categories and items'),
+                      onTap: () => context.push('/admin/menu'),
+                    ),
                 ],
               ),
             ),

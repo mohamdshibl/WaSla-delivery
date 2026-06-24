@@ -5,7 +5,7 @@ import '../providers/auth_provider.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../../core/widgets/wasla_button.dart';
 import '../../../../core/widgets/wasla_glass_card.dart';
-import '../../../../core/widgets/wasla_logo.dart';
+import '../../../../core/widgets/brand_logo.dart';
 import '../../../../core/widgets/wasla_text_field.dart';
 
 class RegisterScreen extends ConsumerStatefulWidget {
@@ -101,8 +101,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Center(
-                        child: WaslaLogo(
-                          fontSize: 48,
+                        child: BrandLogo(
+                          size: 48,
                           color: isDark
                               ? Colors.white
                               : theme.colorScheme.primary,
